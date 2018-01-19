@@ -6,13 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Intro To Redux</title>
 
-    <!-- Referencing the Redux library -->
+    <!-- Referencing hosted version of the Redux library -->
     <script src="https://unpkg.com/redux@latest/dist/redux.js"></script>
 
 </head>
 <body>
     <script>
-    
+
+        // These functions (Action Creators) take one argument and return an action object as a result
+        // Type and Color are the action objects
+        // Every action object will have a type property    
+
+        function addColor(value) {
+            return {
+                type: "ADD",
+                color: value
+            }
+        }
+
+        function removeColor(value) {
+            return {
+                type: "REMOVE",
+                color: value
+            }
+        }
     </script>
 </body>
 </html>
