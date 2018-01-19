@@ -30,6 +30,32 @@
                 color: value
             }
         }
+
+        function favoriteColors(state, action){
+            // First ensure that we have a state, if the state doesn't exist, initialize it as an empty array
+            if (state === undefined) {
+                state = [];
+            }
+
+            // If action's type is "ADD", add the color to the array
+            // Concat method returns an entirely new array made up of the old values along with the new values added
+            if (action.type === "ADD") {
+                return state.concat(action.color);
+            
+            // If action's type is "REMOVE", return a new array with the color omitted
+            // Filter method returns a brand new array with the value omitted
+            } else if (action.type === "REMOVE") {
+                return state.filter(function(item){
+                    return item !== action.color;
+                });
+            
+            // If action's type is unknown, return the state unmodified
+            } else {
+                return state;
+            }
+        }
+
+
     </script>
 </body>
 </html>
