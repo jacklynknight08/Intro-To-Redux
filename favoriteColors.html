@@ -59,27 +59,25 @@
         // Reducer is used as the argument
         var store = Redux.createStore(favoriteColors);
 
+        // The subscribe method specifies a function (listener) that will get called every time the contents of the store get modified
+        store.subscribe(render);
+
+        // getState method returns state's value
+        function render(){
+            console.log(store.getState());
+        }
+
         // Use dispatch method on store object that takes an action as its argument
         // Each dispatch call sends an action to the reducer
         // Reducer then takes the action and performs the work to create a new state
-        // getState method returns state's value
         store.dispatch(addColor("red"));
-        console.log(store.getState());
         store.dispatch(addColor("orange"));
-        console.log(store.getState());
         store.dispatch(addColor("yellow"));
-        console.log(store.getState());
         store.dispatch(addColor("green"));
-        console.log(store.getState());
         store.dispatch(addColor("blue"));
-        console.log(store.getState());
         store.dispatch(addColor("indigo"));
-        console.log(store.getState());
         store.dispatch(addColor("violet"));
-        console.log(store.getState());
         store.dispatch(removeColor("indigo"));
-        console.log(store.getState());
-
 
     </script>
 </body>
